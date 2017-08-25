@@ -1,0 +1,71 @@
+﻿@model HealthyFoods.Models.MeatFishEgg
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<br /><br /><br />
+<h2>Details</h2>
+
+<div>
+    <h4>Proteins</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+
+        <dd>
+            @if (Model.Image == null)
+            {
+                Model.Image = "https://pbs.twimg.com/profile_images/378800000650054663/f477d2ec75ad7722d6d56b9237da3d01_400x400.jpeg";
+            }
+            <img src="@Url.Content(Model.Image)" height="300" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Protein)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Protein)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Carbohydrates)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Carbohydrates)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Energy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Energy)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MeatFishEggID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

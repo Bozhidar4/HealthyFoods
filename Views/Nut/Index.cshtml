@@ -1,0 +1,109 @@
+﻿@model IEnumerable<HealthyFoods.Models.Nut>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<article id="demo-flat" class="demo">
+    <h2 class="introsign">Nuts</h2>
+    <div id="flat">
+        <ul>
+            <li data-flip-title="Red">
+                <img src="http://lechitel.net/wp-content/uploads/2015/07/bademi1.jpg">
+            </li>
+            <li data-flip-title="Razzmatazz" data-flip-category="Purples">
+                <img src="http://recepti.gotvach.bg/files/lib/600x350/orehi-daska-celi.jpg">
+            </li>
+            <li data-flip-title="Deep Lilac" data-flip-category="Purples">
+                <img src="http://gotvach.bg/files/lib/600x350/fastaci2.jpg">
+            </li>
+            <li data-flip-title="Daisy Bush" data-flip-category="Purples">
+                <img src="http://gradcontent.com/lib/600x350/pechen-nahut.jpg">
+            </li>
+            <li data-flip-title="Cerulean Blue" data-flip-category="Blues">
+                <img src="http://gotvach.bg/files/lib/600x350/brazil-oreh.jpg">
+            </li>
+            <li data-flip-title="Dodger Blue" data-flip-category="Blues">
+                <img src="http://www.zdravedae.com/wp-content/uploads/2014/12/sham-fastak-surov.jpg">
+            </li>
+            <li data-flip-title="Cyan" data-flip-category="Blues">
+                <img src="http://gotvach.bg/files/lib/600x350/hazelnuts1.jpg">
+            </li>
+            <li data-flip-title="Robin's Egg" data-flip-category="Blues">
+                <img src="http://gradcontent.com/lib/600x350/makadamia.jpg">
+            </li>
+            <li data-flip-title="Deep Sea" data-flip-category="Greens">
+                <img src="http://gradcontent.com/lib/600x350/kashu.jpg">
+            </li>
+            <li data-flip-title="Apple" data-flip-category="Greens">
+                <img src="http://gradcontent.com/lib/600x350/kedrovi-qdki.jpg">
+            </li>
+        </ul>
+    </div>
+    <script>
+    var flat = $("#flat").flipster({
+        style: 'flat',
+        spacing: -0.25
+    });
+    </script>
+</article>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Protein)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Carbohydrates)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Energy)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @if (item.Image == null)
+            {
+                item.Image = "https://www.myfarm.bg/wp-content/uploads/2014/01/Zelena-salata-1-e1390155666925.jpg";
+            }
+            <img src="@Url.Content(item.Image)" height="100" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Protein)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Carbohydrates)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Energy)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.NutID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.NutID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.NutID })
+        </td>
+    </tr>
+}
+
+</table>

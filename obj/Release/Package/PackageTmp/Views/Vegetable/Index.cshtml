@@ -1,0 +1,110 @@
+﻿@model IEnumerable<HealthyFoods.Models.Vegetable>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<article id="demo-flat" class="demo">
+    <h2 class="introsign">Vegetables</h2>
+    <div id="flat">
+        <ul>
+            <li data-flip-title="Red">
+                <img src="http://www.gradinar.net/news_pict/2012/1337094685_52256_1.jpg">
+            </li>
+            <li data-flip-title="Razzmatazz" data-flip-category="Purples">
+                <img src="http://www.zdrave.ws/wp-content/uploads/2016/06/brokoli_morkovi.jpg">
+            </li>
+            <li data-flip-title="Deep Lilac" data-flip-category="Purples">
+                <img src="http://gradcontent.com/lib/600x350/cabbage4.jpg">
+            </li>
+            <li data-flip-title="Daisy Bush" data-flip-category="Purples">
+                <img src="http://gotvach.bg/files/lib/600x350/tomatoes4.jpg">
+            </li>
+            <li data-flip-title="Cerulean Blue" data-flip-category="Blues">
+                <img src="https://webnews.bg/uploads/images/99/9899/259899/640x.jpg?_=1477654233">
+            </li>
+            <li data-flip-title="Dodger Blue" data-flip-category="Blues">
+                <img src="http://lechitel.net/wp-content/uploads/2015/09/cherveno-cveklo.jpeg">
+            </li>
+            <li data-flip-title="Cyan" data-flip-category="Blues">
+                <img src="http://otslabvane-dieti.net/wp-content/uploads/2013/08/kmet-livanski-izvadi-morkov-gigantski-snimka-142663.jpg">
+            </li>
+            <li data-flip-title="Robin's Egg" data-flip-category="Blues">
+                <img src="http://img.bg.sof.cmestatic.com/media/images/620x349/Mar2013/61096191.jpg">
+            </li>
+            <li data-flip-title="Deep Sea" data-flip-category="Greens">
+                <img src="http://img.bg.sof.cmestatic.com/media/images/620x349/Jul2016/2111134331.jpg">
+            </li>
+            <li data-flip-title="Apple" data-flip-category="Greens">
+                <img src="http://www.bobthechef.com/sites/bobthechef.com/files/imagecache/scale_and_crop-640x440/info/images/well_asparagus.jpg">
+            </li>
+        </ul>
+    </div>
+    <script>
+    var flat = $("#flat").flipster({
+        style: 'flat',
+        spacing: -0.25
+    });
+    </script>
+    </article>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Protein)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Carbohydrates)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Energy)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @if (item.Image == null)
+                    {
+                        item.Image = "https://www.myfarm.bg/wp-content/uploads/2014/01/Zelena-salata-1-e1390155666925.jpg";
+                    }
+                    <img src="@Url.Content(item.Image)" height="100" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Protein)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Carbohydrates)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Energy)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.VegetableID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.VegetableID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.VegetableID })
+                </td>
+            </tr>
+        }
+
+    </table>
+

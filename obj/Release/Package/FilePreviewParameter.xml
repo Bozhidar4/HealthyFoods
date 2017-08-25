@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="healthyfoods" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^F:\\Just\ IT\\Projects\\HealthyFoods\\HealthyFoods\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^F:\\Just\ IT\\Projects\\HealthyFoods\\HealthyFoods\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="DefaultConnection-Web.config Connection String" description="" value="data source=healthyf.database.windows.net;initial catalog=HealthDB;persist security info=True;user id=Bozhidar;password=MnogoMnogo004;MultipleActiveResultSets=False" tags="">
+    <parameterEntry kind="XmlFile" scope="F:\\Just\ IT\\Projects\\HealthyFoods\\HealthyFoods\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="HealthContext-Web.config Connection String" description="" value="Data Source=healthyf.database.windows.net;Initial Catalog=HealthDB;Persist Security Info=True;User ID=Bozhidar;Password=MnogoMnogo004" tags="">
+    <parameterEntry kind="XmlFile" scope="F:\\Just\ IT\\Projects\\HealthyFoods\\HealthyFoods\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='HealthContext']/@connectionString" />
+  </parameter>
+</parameters>
